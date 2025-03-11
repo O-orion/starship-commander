@@ -42,7 +42,7 @@ const ProgressBar = styled.div<{ value: number }>`
   }
 `;
 
-// Nova prop para pontuação
+// prop para pontuação
 interface StatusIndicatorsProps {
   speed: number;
   energy: number;
