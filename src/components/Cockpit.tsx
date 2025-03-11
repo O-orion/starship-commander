@@ -31,7 +31,13 @@ const Cockpit = () => {
   const [asteroidsDestroyed, setAsteroidsDestroyed] = useState(0);
 
   const handleAsteroidDestroyed = () => {
+    console.log('Asteroid destruído, pontos:', asteroidsDestroyed + 1);
     setAsteroidsDestroyed((prev) => prev + 1);
+  };
+
+  const handleEnergyReduced = (amount: number) => {
+    console.log('Energia reduzida em', amount);
+    setEnergy((prev) => Math.max(0, prev - amount));
   };
 
   return (
@@ -43,6 +49,7 @@ const Cockpit = () => {
         speed={speed}
         isLaunched={isLaunched}
         onAsteroidDestroyed={handleAsteroidDestroyed}
+        onEnergyReduced={handleEnergyReduced}
       />
       <StatusIndicators speed={speed} energy={energy} asteroidsDestroyed={asteroidsDestroyed} />
       <Title>Starship Commander</Title>
